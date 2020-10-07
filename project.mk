@@ -9,17 +9,11 @@ PADVALUE := 0xFF
 # ROM version (typically starting at 0 and incremented for each published version)
 VERSION := 0
 
-# 4-ASCII letter game ID
-GAMEID := BOIL
-
 # Game title, up to 11 ASCII chars
-TITLE := BOILERPLATE
+TITLE := BGBWELCOME
 
-# New licensee, 2 ASCII chars
-# Homebrew games FTW!
-LICENSEE := HB
 # Old licensee, please set to 0x33 (required to get SGB compatibility)
-OLDLIC := 0x33
+OLDLIC := 0x00
 
 # MBC type, tells which hardware is in the cart
 # See https://gbdev.io/pandocs/#_0147-cartridge-type or consult any copy of Pan Docs
@@ -34,7 +28,7 @@ MBC := 0x00
 SRAMSIZE := 0x00
 
 # ROM name
-ROMNAME := boilerplate
+ROMNAME := bgbtest
 ROMEXT  := gb
 
 
@@ -42,7 +36,7 @@ ROMEXT  := gb
 # "Sensible defaults" are included
 
 # Disable automatic `nop` after `halt`
-ASFLAGS += -h
+#ASFLAGS += -h
 
 # Export all labels
 # This means they must all have unique names, but they will all show up in the .sym and .map files
