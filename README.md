@@ -59,7 +59,7 @@ Data compression trivia: bgbtest.gb is using a simple decompression routine whic
 
 ## Original 2013 source code and ASM tutorial
 
-As mentioned in the introduction, this version is a bit cleaned up, better commented and made to compile with modern versions of RGBDS. However, after doing this, I realized that I actually publicly released the source code back in 2013 when I originally made the ROM. This was also intended to be a GB ASM tutorial at the time. Since it's already out there, here's that version too. You can view (the original blog post)[https://blog.gg8.se/wordpress/2013/01/28/gameboy-project-week-4-a-testwelcome-rom/] or the (original 2013 version)[original-2013-version] directory in this repo.
+As mentioned in the introduction, this version is a bit cleaned up, better commented and made to compile with modern versions of RGBDS. However, after doing this, I realized that I actually publicly released the source code back in 2013 when I originally made the ROM. This was also intended to be a GB ASM tutorial at the time. Since it's already out there, here's that version too. You can view [the original blog post](https://blog.gg8.se/wordpress/2013/01/28/gameboy-project-week-4-a-testwelcome-rom/) or the [original 2013 version](original-2013-version) directory in this repo.
 
 ## Disassembly
 

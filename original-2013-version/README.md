@@ -2,7 +2,7 @@ Copy of the (original blog post)[https://blog.gg8.se/wordpress/2013/01/28/gamebo
 
 # Gameboy project week 4: A test/”welcome” ROM
 
-This week’s was supposed to be a MIDI controllable version of Shitwave, and while that’s done, I found out it was a bit less exciting than I was hoping for, so I want to try to come up with some new ideas for that. However, I found a new project to do over the weekend. beware, the author of (BGB)[http://bgb.bircd.org/] \(Gameboy emulator and debugger\) mentioned that he wanted to include a ROM with the emulator (not specifically mentioning me) that a new user of the emulator could use to test the emulator, without having to go to a different site to find a ROM. These are his criteria for this ROM:
+This week’s was supposed to be a MIDI controllable version of Shitwave, and while that’s done, I found out it was a bit less exciting than I was hoping for, so I want to try to come up with some new ideas for that. However, I found a new project to do over the weekend. beware, the author of [BGB](http://bgb.bircd.org/) (Gameboy emulator and debugger) mentioned that he wanted to include a ROM with the emulator (not specifically mentioning me) that a new user of the emulator could use to test the emulator, without having to go to a different site to find a ROM. These are his criteria for this ROM:
 
 - Should show some form of graphics, and ideally show some form of animation.
 - Should play sounds.
@@ -10,11 +10,11 @@ This week’s was supposed to be a MIDI controllable version of Shitwave, and wh
 
 All these things are potentially useful in case the emulator (or the configuration of the emulator) is not working correctly for some reason.
 
-For this week’s project I’m also including the source code. I pondered whether to do this or not for a couple of reasons. One reason is code vanity. When you release the source code for something, it lets other people judge the code. I would describe my programming style as casual and chaotic. This means that in a lot of cases I make things up as I go along. This means that sometimes I do things in ways that are “wrong”, or only works under certain circumstances, or are unnecessarily tedious. Another risk with releasing the source code is that people will invariably ask you for help in private communication. There’s not necessarily anything wrong with that per se (unless the question is stupid) and I try to answer questions I get in my inbox, but it may not be the most efficient way to get an answer. You may want to try my (Gameboy development forum)[https://gbdev.gg8.se/forums/] or perhaps more realistically if you want people to see your question, (NESDev’s Gameboy subforum)[https://forums.nesdev.com/viewforum.php?f=20]. Or #gbdev on EFNet if you use IRC.
+For this week’s project I’m also including the source code. I pondered whether to do this or not for a couple of reasons. One reason is code vanity. When you release the source code for something, it lets other people judge the code. I would describe my programming style as casual and chaotic. This means that in a lot of cases I make things up as I go along. This means that sometimes I do things in ways that are “wrong”, or only works under certain circumstances, or are unnecessarily tedious. Another risk with releasing the source code is that people will invariably ask you for help in private communication. There’s not necessarily anything wrong with that per se (unless the question is stupid) and I try to answer questions I get in my inbox, but it may not be the most efficient way to get an answer. You may want to try my [Gameboy development forum](https://gbdev.gg8.se/forums/) or perhaps more realistically if you want people to see your question, [NESDev’s Gameboy subforum](https://forums.nesdev.com/viewforum.php?f=20). Or #gbdev on EFNet if you use IRC.
 
 ## The program
 
-![Screenshot](testrom.png)
+!(Screenshot)[testrom.png]
 
 The program in its current form shows the BGB icon, BGB in a big font and the text “press buttons to test”.
 
@@ -38,7 +38,7 @@ I have the following directory structure:
 **c:\\gbdev\\rgbds\\projectname\\** <- This is of many project folders.
 **c:\\gbdev\\rgbds\\inc\\** <- Here are my global include files.
 
-For compiling the code I use RGBDS, an assembler. You can get the Windows version (here)[http://www.otakunozoku.com/rednex-gameboy-development-system/]. If you are more inclined to compile yourself, you might be better off with (bentley’s branch)[https://github.com/bentley/rgbds/]. Or, you may want to try (ASMotor)[https://github.com/asmotor/asmotor/], the “spiritual successor” to RGBDS by the same author. Some people also swear by (WLA DX)[https://www.villehelin.com/wla.html], another assembler.
+For compiling the code I use RGBDS, an assembler. You can get the Windows version [here](http://www.otakunozoku.com/rednex-gameboy-development-system/). If you are more inclined to compile yourself, you might be better off with [bentley’s branch](https://github.com/bentley/rgbds/). Or, you may want to try [ASMotor](https://github.com/asmotor/asmotor/), the “spiritual successor” to RGBDS by the same author. Some people also swear by [WLA DX](https://www.villehelin.com/wla.html), another assembler.
 
 In every project folder I have:
 **project.asm** <- The project in question. I use the following code as a bare bones template
@@ -58,7 +58,7 @@ SECTION “MAIN”,HOME[$150]
 ENTRY
 ```
 
-All allocated memory, whether in ROM (code/data) or RAM (variables) must have a section. A section can optionally have a start address, which is useful. The headerfiller section is used to fill the (header)[http://bgb.bircd.org//pandocs.htm#thecartridgeheader] with 00 bytes, since RGBFIX will take care of that later.
+All allocated memory, whether in ROM (code/data) or RAM (variables) must have a section. A section can optionally have a start address, which is useful. The headerfiller section is used to fill the [header](http://bgb.bircd.org//pandocs.htm#thecartridgeheader) with `00` bytes, since `RGBFIX` will take care of that later.
 
 `m.bat` <- The equivalent of a so called "make file", but in the form of a low tech bat file. It compiles the source code into a runnable `.gb` file. and corrects the file header values. I run this from the command prompt by typing `m`. I know a `.bat` file is a bit outdated, but I never found a reason to replace my `m.bat` with a proper makefile. A makefile makes more sense for a project made in C or another higher level language, where each source file takes significant time to compile, so you want to save time by only recompiling the files you need to recompile. An asm project typically compiles in 0.01 s on my computer.
 
